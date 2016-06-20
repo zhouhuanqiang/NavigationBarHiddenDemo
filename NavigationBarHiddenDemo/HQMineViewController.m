@@ -19,6 +19,7 @@
 
 @implementation HQMineViewController
 
+#pragma mark - LifeCircle
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -47,7 +48,7 @@
     self.closeAnimating = NO;
 }
 
-
+#pragma mark - UITableView DataSoucrce
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 50;
@@ -58,6 +59,7 @@
     return 5;
 }
 
+#pragma mark - UITableView Delegate
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *reuseID = @"setting";
@@ -80,7 +82,5 @@
     [self.navigationController pushViewController:[[HQThirdViewController alloc] init] animated:YES];
     
 }
-
-
 
 @end
