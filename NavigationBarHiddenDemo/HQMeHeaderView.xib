@@ -73,6 +73,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="backView" destination="QIN-cg-N02" id="d0B-Xa-9jl"/>
                 <outlet property="fansBtn" destination="PAv-oN-6u5" id="YvN-eg-qb2"/>
                 <outlet property="focusBtn" destination="NFr-Uh-7r1" id="oTB-wJ-tFu"/>
                 <outlet property="iconView" destination="FMv-J4-pxy" id="8c9-5P-oR8"/>

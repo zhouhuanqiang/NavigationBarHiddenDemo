@@ -17,6 +17,8 @@
 
 @end
 
+static CGFloat const headerInitialHeight = 240;
+
 @implementation HQMineViewController
 
 #pragma mark - LifeCircle
@@ -82,5 +84,12 @@
     [self.navigationController pushViewController:[[HQThirdViewController alloc] init] animated:YES];
     
 }
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGPoint offset = scrollView.contentOffset;
+    [self.headerView scrollViewDidScroll:offset];
+}
+
 
 @end

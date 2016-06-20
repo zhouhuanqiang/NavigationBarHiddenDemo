@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *nameBtn;
 @property (weak, nonatomic) IBOutlet UIButton *focusBtn;
 @property (weak, nonatomic) IBOutlet UIButton *fansBtn;
+@property (weak, nonatomic) IBOutlet UIImageView *backView;
 
 @end
 
@@ -25,6 +26,15 @@
     self.iconView.clipsToBounds = YES;
 }
 
-
+- (void)scrollViewDidScroll:(CGPoint)offset
+{
+    if (offset.y < 0) {
+        CGRect rect = self.frame;
+        rect.origin.y = offset.y;
+        rect.size.height = CGRectGetHeight(rect) - offset.y;
+        self.backView.frame = rect;
+        self.clipsToBounds=NO;
+    }
+}
 
 @end

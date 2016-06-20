@@ -10,5 +10,6 @@
 
 @interface HQMeHeaderView : UIView
 
+- (void)scrollViewDidScroll:(CGPoint)offset;
 
 @end
