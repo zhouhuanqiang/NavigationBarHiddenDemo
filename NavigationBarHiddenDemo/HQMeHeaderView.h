@@ -10,6 +10,5 @@
 
 @interface HQMeHeaderView : UIView
 
-- (void)scrollDidScroll:(UIScrollView *)scrollView;
 
 @end

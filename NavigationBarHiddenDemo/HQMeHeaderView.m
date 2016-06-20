@@ -15,11 +15,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *focusBtn;
 @property (weak, nonatomic) IBOutlet UIButton *fansBtn;
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *icon_backRight;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *icon_backTop;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *icon_backLeft;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *icon_backHeight;
-
 @end
 
 @implementation HQMeHeaderView
@@ -30,15 +25,6 @@
     self.iconView.clipsToBounds = YES;
 }
 
-- (void)scrollDidScroll:(UIScrollView *)scrollView{
-    CGFloat offset_Y = scrollView.contentOffset.y;
-    if (offset_Y < 0) {
-        self.icon_backTop.constant = offset_Y;
-        self.icon_backLeft.constant = offset_Y / 2;
-        self.icon_backRight.constant = offset_Y / 2;
-        self.icon_backHeight.constant = 240+(-offset_Y);
-    }
-    [self layoutIfNeeded];
-}
+
 
 @end
