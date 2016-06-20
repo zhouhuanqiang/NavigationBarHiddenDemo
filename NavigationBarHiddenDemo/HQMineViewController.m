@@ -9,9 +9,11 @@
 #import "HQMineViewController.h"
 #import "HQThirdViewController.h"
 #import "HQMeHeaderView.h"
-@interface HQMineViewController ()
+@interface HQMineViewController ()<UITabBarControllerDelegate>
 
 @property (nonatomic, strong) HQMeHeaderView * headerView;
+
+
 
 @end
 
@@ -19,10 +21,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.view.backgroundColor = [UIColor colorWithRed:247 / 255.0 green:247 / 255.0 blue:247 / 255.0 alpha:1];
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.headerView = [[[NSBundle mainBundle] loadNibNamed:@"HQMeHeaderView" owner:self options:nil] firstObject];
     self.tableView.tableHeaderView = self.headerView;
+    
 }
 
 
@@ -30,14 +34,17 @@
 {
     [super viewWillAppear:animated];
 
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    [self.navigationController setNavigationBarHidden:YES animated:!self.closeAnimating];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    
+
     [self.navigationController setNavigationBarHidden:NO animated:YES];
+    
+    // 控制器消失时要开启动画，保证由其他方式进入控制器会有动画
+    self.closeAnimating = NO;
 }
 
 

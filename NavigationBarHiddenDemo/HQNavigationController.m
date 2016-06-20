@@ -21,8 +21,9 @@
 
 + (void)initialize
 {
-    UINavigationBar *navigationBar = [UINavigationBar appearance];
-    navigationBar.translucent = NO;
+    // 关闭导航栏的透明效果
+//    UINavigationBar *navigationBar = [UINavigationBar appearance];
+//    navigationBar.translucent = NO;
 }
 
 /**

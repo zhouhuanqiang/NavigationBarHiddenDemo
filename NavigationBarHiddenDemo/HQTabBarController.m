@@ -11,7 +11,7 @@
 #import "HQMineViewController.h"
 #import "HQNavigationController.h"
 
-@interface HQTabBarController ()
+@interface HQTabBarController ()<UITabBarControllerDelegate>
 
 @end
 
@@ -21,10 +21,23 @@
     [super viewDidLoad];
     
     self.tabBar.translucent = NO;
-
+    self.delegate = self;
     [self.tabBar setBarTintColor:[UIColor whiteColor]];
     
     [self addChildVc];
+}
+
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
+{
+    UINavigationController *navigationController = (UINavigationController *)viewController;
+    
+    if ([navigationController.topViewController isKindOfClass:[HQMineViewController class]])
+    {
+        HQMineViewController *mineVc = (HQMineViewController *)navigationController.topViewController;
+        // 点击TabBarItem进入"我的"控制器 会关闭导航栏消失的动画
+        mineVc.closeAnimating = YES;
+    }
+    return YES;
 }
 
 - (void)addChildVc

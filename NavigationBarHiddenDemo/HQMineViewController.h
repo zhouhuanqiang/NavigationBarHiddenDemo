@@ -10,4 +10,6 @@
 
 @interface HQMineViewController : UITableViewController
 
+@property (nonatomic, assign) BOOL closeAnimating;
+
 @end
